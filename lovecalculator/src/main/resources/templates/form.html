@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .error {
+          color: red;
+        }
+      </style>
+</head>
+<body>
+    <div style="text-align:center;">
+        <h1>Please enter the persons</h1>
+
+    <!-- Below is the html for the form details -->
+    <form action="#" data-th-action="@{/result}" data-th-object="${person}" method="post">
+        
+        <p>Name: <input type="text" data-th-field="*{fname}" placeholder="Person 1"/></p>
+        <p class="error" th:if="${#fields.hasErrors('fname')}" th:errors="*{fname}">Name Error</p>
+        
+        <p>Name: <input type="text" th:field="*{sname}" placeholder="Person 2"/></p>
+        <p class="error" th:if="${#fields.hasErrors('sname')}" th:errors="*{sname}">Name Error</p>
+    <!-- Below is the html for the submit -->
+        <input type="submit" value="Save">
+        <input type="reset" value="Clear">
+    </form>
+    </div>
+    
+</body>
+</html>
